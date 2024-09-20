@@ -64,17 +64,4 @@ inverteTupla (x:xs) = map (\x -> (snd x, fst x)) (x:xs)
 
 concatena xs = foldr (++) [] xs
 
-filtraPalavraIgual palavra (x:xs) = filter (\x -> x /= -1) (map (\x -> if (snd x) `compare` palavra == EQ then (fst x) else (-1)) (x:xs))
 
-removePalavrasIguais [] = []
-removePalavrasIguais (x:xs) = removePalavrasIguais' (snd x) (x:xs)
-removePalavrasIguais' palavra (x:xs) = x:filter (\x -> if (snd x) `compare` palavra == EQ then False else True) (xs)
-
-imprimeWithShorten (x:xs) = show (shorten(x:xs))
-
-{-Função main-}
-main = do 
-        texto <- readFile "testehsk.txt"
-        let tratarFuncao = filter (\x -> if isPunctuation (x) == True then False else True) texto
-        let funcao =  almalgamate $ sortLs $ concatena $ allNumWords $ numLines (lines (tratarFuncao))
-        putStrLn (imprime (funcao))
