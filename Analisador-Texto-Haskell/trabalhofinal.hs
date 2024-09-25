@@ -72,4 +72,9 @@ removePalavrasIguais' palavra (x:xs) = x:filter (\x -> if (snd x) `compare` pala
 
 imprimeWithShorten (x:xs) = show (shorten(x:xs))
 
-
+{-Função main-}
+main = do 
+        texto <- readFile "testehsk.txt"
+        let tratarFuncao = filter (\x -> if isPunctuation (x) == True then False else True) texto
+        let funcao =  almalgamate $ sortLs $ concatena $ allNumWords $ numLines (lines (tratarFuncao))
+        putStrLn (imprime (funcao))
