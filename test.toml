@@ -1,0 +1,26 @@
+[package]
+name = "chess"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+debugger = ["dep:egui", "dep:bevy_egui", "dep:bevy-inspector-egui", "bevy_mod_picking/debug"]
+# default = ["debugger"]
+
+[dependencies]
+bevy_mod_picking = "0.20"
+bevy = { version = "0.14", features = ["dynamic_linking"] }
+
+bevy-inspector-egui = { version = "0.25", optional = true }
+egui = { version = "0.28", optional = true }
+bevy_egui = { version = "0.28", default-features = false, optional = true}
+
+
+[lints.clippy]
+correctness = { level = "deny", priority = 0 }
+suspicious = { level = "deny", priority = 3 }
+style = { level = "deny", priority = 1 }
+complexity = { level = "deny", priority = 4 }
+perf = { level = "deny", priority = 2 }
+nursery = { level = "deny", priority = 5 }
+type_complexity = { level = "allow", priority = -1 }
