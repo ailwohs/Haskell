@@ -28681,21 +28681,5 @@ end
 
 function loop_graph(n, connections = [1,])
 
-return graph
-end
-points = Array{Float64,2}(undef, 2, n)
-for i in 1:n
-    points[1, i], points[2, i] = create_point(i)
-end
 
-return points
-end
-
-# Spring configuration ####
-function complete_graph(n)
-graph = ones(Float64, n, n)
-
-for i in 1:n
-    graph[i, i] = 0.
-end
 
