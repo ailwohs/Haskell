@@ -28642,6 +28642,21 @@ for i in 1:n
     graph[i, i] = 0.
 end
 
+return graph
+end
+
+function loop_graph(n, connections = [1,])
+graph = zeros(Float64, n, n)
+
+
+end
+points = Array{Float64,2}(undef, 2, n)
+for i in 1:n
+    points[1, i], points[2, i] = create_point(i)
+end
+
+return points
+end
 
 # Spring configuration ####
 function complete_graph(n)
