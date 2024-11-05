@@ -8,7 +8,21 @@ public class Main {
 	Scanner scan = new Scanner(System.in);
 	ListaPessoas pessoas = new ListaPessoas();
 
+	public static void main(String[] args) {
+		
+		Main main = new Main();
+		Pessoa p;
+		do {
+			p = main.criaPessoa();
+			if ( p != null ) {
+				main.pessoas.addPessoa(p);
+				main.mostraPessoas();
+			}
+		} while( p != null );
+		
+	}
 
+	public Pessoa criaPessoa() {
 		Pessoa p = new Pessoa();
 		String input;
 		System.out.print("Informe o nome: ");
