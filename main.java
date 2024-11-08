@@ -3,6 +3,11 @@ import dados.Pessoa;
 import negocio.ListaPessoas;
 import java.util.Scanner;
 
+public class Main {
+	
+	Scanner scan = new Scanner(System.in);
+	ListaPessoas pessoas = new ListaPessoas();
+
 	public static void main(String[] args) {
 		
 		Main main = new Main();
