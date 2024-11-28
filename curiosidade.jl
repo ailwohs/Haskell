@@ -1,7 +1,26 @@
 include("building_blocks.jl")
 include("../src/physics.jl")
 
-# Run experime
+# Run experiments in parallel in order to compare behaviour
+function run_experiment(contraptions, settings_list; 
+                        Δt::Float64 = 0.01, t_total::Float64 = 10)
+
+    @assert(length(contraptions) == length(settings_list))
+    n = length(contraptions)
+
+    results = Array()
+    for i in 1:n
+        outcome = engine(contraptions[i], settings_list[i], Δt, t_total)
+        push!(results, outcome)
+    end
+
+    return results
+end
+
+# Physics behaviour tests ####
+
+# Contraptions should not accelerate in absence of external forces
+function newton_first_law_test(contraption)
     results = run_experiment([contraption],
                              [null_settings])
     return false
