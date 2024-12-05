@@ -8,16 +8,7 @@ function run_experiment(contraptions, settings_list;
     @assert(length(contraptions) == length(settings_list))
     n = length(contraptions)
 
-    results = Array()
-    for i in 1:n
-        outcome = engine(contraptions[i], settings_list[i], Δt, t_total)
-        push!(results, outcome)
-    end
 
-    return results
-end
-
-# Physics behaviour tests ####
 
 # Contraptions should not accelerate in absence of external forces
 function newton_first_law_test(contraption)
