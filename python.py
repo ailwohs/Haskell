@@ -29,3 +29,7 @@ meses=idade*12
 print("voce ja viveu" , idade*12, 'meses')
 dias=idade*365
 print("E dias:", meses*365)
+
+
+
+nome=string(input("Digite seu nome"))
